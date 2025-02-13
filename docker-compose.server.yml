@@ -49,6 +49,8 @@ services:
     networks:
       - app
       - frontend
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       AUTHENTIK_REDIS__HOST: redis
       AUTHENTIK_POSTGRESQL__HOST: postgresql
@@ -83,6 +85,8 @@ services:
     command: worker
     networks:
       - app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       AUTHENTIK_REDIS__HOST: redis
       AUTHENTIK_POSTGRESQL__HOST: postgresql
